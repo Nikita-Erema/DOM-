@@ -8,5 +8,12 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
     mode: 'development',
-    plugins: [new HtmlWebpackPlugin()]
+    plugins: [new HtmlWebpackPlugin()],
+    module: {
+        rules: [
+      {
+        test: /\.html$/i,
+        loader: "html-loader",
+      }]
+    }
 }
