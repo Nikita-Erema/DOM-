@@ -5,18 +5,16 @@ module.exports = {
     entry: './src/app.js',
     output: {
         filename: 'main.js',
-        path: path.resolve(__dirname, 'docs')
+        path: path.resolve(__dirname, 'dist')
     },
-    mode: 'development',
+    mode: 'production',
     plugins: [new HtmlWebpackPlugin({
-        template: './src/main/index.html',
-        filename: './index.html'
+        template: './src/main/index.html'
     })],
     module: {
-        rules: [
+    rules: [
       {
         test: /\.html$/i,
-        loader: "html-loader",
-      }]
-    }
+        use: 'html-loader'
+      }]}
 }
