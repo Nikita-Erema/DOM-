@@ -10,7 +10,9 @@ module.exports = {
     },
     mode: 'production',
     plugins: [new HtmlWebpackPlugin({
-        template: './src/main/index.html'
+      template: './src/main/index.html', 
+      filename: 'index.html',
+      inject: true
     })],
     module: {
     rules: [
@@ -30,10 +32,5 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       }
     ]
-  },
-  devServer: {
-    static: './dist',
-    port: 3000,
-    hot: true
   }
 }
