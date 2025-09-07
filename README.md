@@ -1,2 +1,2 @@
 # DOM Homework
-![CI](https://github.com/nikita-erema/DOM-/actions/workflows/webpack.yml/badge.svg)
+![CI](https://nikita-erema.github.io/DOM-/)
