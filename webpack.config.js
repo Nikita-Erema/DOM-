@@ -8,7 +8,11 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
     mode: 'production',
-    plugins:[],
+    plugins: [new HtmlWebpackPlugin({
+      template: './src/main/index.html', 
+      filename: 'index.html',
+      inject: true
+    })],
     module: {
     rules: [
       {
