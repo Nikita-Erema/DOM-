@@ -26,10 +26,14 @@ jobs:
       run: |
         npm install
         npx webpack
-        
+
     - name: Check built files
       run: |
         echo "Содержимое папки dist:"
         ls -la dist/
         echo "HTML файлы:"
         find dist/ -name "*.html"
+    - name: Fix permissions
+      run: |
+        chmod -R 644 dist/*
+        find dist/ -type d -exec chmod 755 {} \;

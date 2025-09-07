@@ -13,7 +13,11 @@ module.exports = {
       template: './src/main/index.html', 
       filename: 'index.html',
       inject: true
-    })],
+    }),
+  new HtmlWebpackPlugin({
+    template: './src/index.html', 
+    filename: '404.html',  // для обработки путей в SPA
+  })],
     module: {
     rules: [
       {
