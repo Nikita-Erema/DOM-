@@ -1,5 +1,4 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path')
 
 module.exports = { 
@@ -9,15 +8,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
     mode: 'production',
-    plugins: [new HtmlWebpackPlugin({
-      template: './src/main/index.html', 
-      filename: 'index.html',
-      inject: true
-    }),
-  new HtmlWebpackPlugin({
-    template: './src/index.html', 
-    filename: '404.html',  // для обработки путей в SPA
-  })],
+    plugins:[],
     module: {
     rules: [
       {
