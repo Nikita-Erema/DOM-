@@ -20,7 +20,7 @@ paintMap(box, 4, 4) //ставим значение count - сколько ст�
 console.log(box)
 document.body.append(box)
 const image = document.createElement('img')
-image.src = "../../src/image/goblin.png";
+image.src = "../src/image/goblin.png";
 image.alt = 'goblin'
 function random() {
     randomPosColumn = Math.floor(Math.random() * box.children[0].childElementCount);
