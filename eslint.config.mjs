@@ -9,7 +9,7 @@ export default [
       "**/coverage/**",
       "**/webpack/**",
       "**/*.config.js",
-      "**/main/**",
+      "**/dist/**",
     ]
   },
 

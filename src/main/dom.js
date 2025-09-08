@@ -1,23 +1,39 @@
-const box = document.createElement('div')
-function paintMap(box) {
-    box.append(document.createElement('div'), document.createElement('div'), document.createElement('div'), document.createElement('div'))
+let beforePosition = {
+    column: 0,
+    line: 0
 }
-paintMap(box)
-for(let i = 0;i < box.childElementCount;i++) {
-    console.log(box.children[i])
-    paintMap(box.children[i])
-    box.children[i].classList.add('mini_box')
+let randomPosColumn;
+let randomPosLine;
+let box = document.createElement('div')
+function paintMap(box, count, childrenCount) {
+    for (let i = 0;i < count;i++) {
+        box.append(document.createElement('div'))
+        box.children[i].classList.add('mini_box')
+        if (childrenCount) {
+            for (let q = 0;q < childrenCount;q++) {
+                box.children[i].append(document.createElement('div'))
+            }
+        }
+    }
 }
+paintMap(box, 4, 4) //ставим значение count - сколько строк; childrenCount - количество столбцов
 console.log(box)
 document.body.append(box)
 const image = document.createElement('img')
 image.src = "../../src/image/goblin.png";
 image.alt = 'goblin'
-const newNode = document.createElement("div");
+function random() {
+    randomPosColumn = Math.floor(Math.random() * box.children[0].childElementCount);
+    randomPosLine = Math.floor(Math.random() * box.childElementCount);
+}
 function move() {
-    let randomPos = Math.floor(Math.random() * 15);
-    box.children[Math.trunc (randomPos/4)].children[randomPos%4].append(image)
-    return randomPos;
+    random()
+    while ((beforePosition.column == randomPosColumn) &&(beforePosition.line == randomPosLine)) {
+        random()
+    }
+    beforePosition.column = randomPosColumn;
+    beforePosition.line = randomPosLine;
+    document.querySelectorAll('.mini_box')[randomPosLine].children[randomPosColumn].append(image)
 }
 move();
 setInterval(move, 1000)
