@@ -10,6 +10,13 @@ module.exports = {
         clean: true
     },
     mode: 'development',
+    devServer: {
+      static: './dist', 
+      port: 3000,       
+      open: true,       
+      hot: true,        
+      watchFiles: ['src/**/*'], 
+    },
     plugins: [new HtmlWebpackPlugin({
       template: './src/main/index.html', 
       filename: 'index.html',
